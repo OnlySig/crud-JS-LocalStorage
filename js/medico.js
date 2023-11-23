@@ -27,7 +27,8 @@ function criaAgendaCompleta(){
             valorDescricao: descricao,
             nomeMedico: nomeMedico,
             imgMedico: imgMedico,
-            tipoMedico: tipoMedico
+            tipoMedico: tipoMedico,
+            fimAgenda: false
         }        
         let listaCompleta = localStorage.agendamentoCompleto ? JSON.parse(localStorage.agendamentoCompleto) : []
         listaCompleta.push(consultaCompleta)

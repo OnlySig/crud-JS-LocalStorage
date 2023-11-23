@@ -199,7 +199,13 @@ body {
 .main__badge--secondary {
     background-color: #6B6BFF;
 }
+.btnDelete {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
 .card {
+    position: relative;
     padding: 24px;
     background-color: #ffffff;
     border-radius: 12px;
