@@ -34,5 +34,5 @@ function criaAgendaCompleta(){
         listaCompleta.push(consultaCompleta)
         localStorage.setItem("agendamentoCompleto", JSON.stringify(listaCompleta))
     });
-    window.location="data.html"
+    window.location="index.html"
 }
