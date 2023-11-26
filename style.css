@@ -364,7 +364,7 @@ body {
 }
 .modal__select-icons {
     display: grid;
-    gap: 4px;
+    gap: 15px;
 }
 .modal__input {
     height: 60px;
@@ -415,4 +415,8 @@ body {
 }
 .progress__bar.is-active {
     background-color: #FF764C;
+}
+
+.arrowUp, .arrowDown {
+    cursor: pointer;
 }
