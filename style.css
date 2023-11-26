@@ -420,3 +420,7 @@ body {
 .arrowUp, .arrowDown {
     cursor: pointer;
 }
+
+.pathArrowDown-active {
+    stroke-opacity: 1;
+}
