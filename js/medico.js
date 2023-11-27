@@ -4,17 +4,38 @@ const imgMedico = document.querySelector(".modal__select-avatar")
 const inputDescricao = document.querySelector(".modal__input")
 const nomeMedico = document.querySelector(".modal__select-name")
 const tipoMedico = document.querySelector(".modal__select-function")
+const btnEndereco = document.querySelectorAll(".modal__option")
 let agendaLocalParse = JSON.parse(localStorage.agendamento) 
+
+console.log(btnEndereco)
+btnEndereco.forEach(opcao => {
+    opcao.addEventListener("click", e => {
+        btnEndereco.forEach(element => {
+            if(element.classList[1]) {
+                element.classList.remove("modal__option-select")
+            }
+        })
+        e.target.classList.add("modal__option-select")    
+    })
+})
 
 inputDescricao.addEventListener("keydown", e => {
     if(e.key === "Enter") {
-        criaAgendaCompleta()
+        if(btnEndereco[0].classList[1] || btnEndereco[1].classList[1]){
+            criaAgendaCompleta()
+        } else {
+            alert("Escolha um endereço!")
+        }
     }
 })
 
-btnAvancar.addEventListener("click", e=>{
-    criaAgendaCompleta()
-}) 
+btnAvancar.addEventListener("click", e => {
+    if(btnEndereco[0].classList[1] || btnEndereco[1].classList[1]){
+        criaAgendaCompleta()
+    } else {
+        alert("Escolha um endereço!")
+    }
+})
 
 function criaAgendaCompleta(){
     let lista = JSON.parse(localStorage.agendamento)
@@ -30,6 +51,7 @@ function criaAgendaCompleta(){
             nomeMedico: nomeMedico,
             imgMedico: imgMedico.attributes[0].nodeValue,
             tipoMedico: tipoMedico,
+            localEndereco: btnEndereco[0].classList[1] ? btnEndereco[0].textContent : btnEndereco[1].textContent,
             fimAgenda: false
         }        
         let listaCompleta = localStorage.agendamentoCompleto ? JSON.parse(localStorage.agendamentoCompleto) : []
@@ -59,7 +81,6 @@ arrows.forEach(arrow => {
                 p--
             }
         }
-        console.log(p)
         const pathDown = document.querySelector(".pathArrowDown")
 
         if(p == 0) {

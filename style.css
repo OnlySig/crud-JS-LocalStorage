@@ -416,11 +416,29 @@ body {
 .progress__bar.is-active {
     background-color: #FF764C;
 }
-
 .arrowUp, .arrowDown {
     cursor: pointer;
 }
-
 .pathArrowDown-active {
     stroke-opacity: 1;
+}
+.modal__subTitle {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 150%;
+}
+.modal__select-target {
+    display: flex;
+    justify-content: space-around;
+}
+.modal__option {
+    padding: 16px;
+    font-weight: 500;
+    color: #292D32;
+    border: 1px solid #292D32;
+    border-radius: 1rem;
+}
+.modal__option-select {
+    border-color: #FF764C;
+    color: #FF764C;
 }

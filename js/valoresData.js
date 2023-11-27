@@ -42,7 +42,7 @@ function mostrarConsulta(){
                     <path d="M15.06 14L20.94 19.88C20.65 20.3 20.3 20.65 19.88 20.94L14 15.06L7.09998 21.96C6.45998 21.92 5.87998 21.79 5.34998 21.59L5.73996 21.2L21.59 5.35C21.79 5.88 21.92 6.46 21.96 7.1L15.06 14Z" fill="#292D32"></path>
                     <path d="M12.24 7.93C11.86 6.28 10.4 5.54 9.11999 5.53C7.83999 5.53 6.38 6.27 6 7.92C5.58 9.75 6.69999 11.28 7.70999 12.24C8.10999 12.62 8.60999 12.8 9.11999 12.8C9.62999 12.8 10.13 12.61 10.53 12.24C11.54 11.28 12.66 9.75 12.24 7.93ZM9.14999 9.49C8.59999 9.49 8.14999 9.04 8.14999 8.49C8.14999 7.94 8.58999 7.49 9.14999 7.49H9.16C9.71 7.49 10.16 7.94 10.16 8.49C10.16 9.04 9.69999 9.49 9.14999 9.49Z" fill="#292D32"></path>
                 </svg>
-                <span>USF - São Valentim, 251</span>
+                <span>${element.localEndereco}</span>
             </div>
             <div class="card__line">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,12 +65,11 @@ function mostrarConsulta(){
                 <span>${element.valorDescricao}</span>                    
             </div>
         `
-        if(!element.fimAgenda) {
-            card.appendChild(btnFimAgenda)
-        }
+        
+        !element.fimAgenda ? card.appendChild(btnFimAgenda) : ""
+
         card.appendChild(btnDelete)
         
-
         btnFimAgenda.addEventListener("click", e => {
             const descricao = e.target.parentNode.children[3].children[1].textContent
             const indice = listaCompleta.filter(element => element.valorDescricao == descricao)
@@ -83,11 +82,7 @@ function mostrarConsulta(){
             localStorage.setItem("agendamentoCompleto", JSON.stringify(listaCompleta))
         })
 
-        if(element.fimAgenda) {
-            listaContainer[0].appendChild(card)
-        } else {
-            listaContainer[1].appendChild(card)
-        }
+        element.fimAgenda ? listaContainer[0].appendChild(card) : listaContainer[1].appendChild(card)
 
         btnDelete.addEventListener("click", e => {
             const confirmar = confirm("Confirme novamente para remover a consulta")
@@ -97,13 +92,10 @@ function mostrarConsulta(){
                 const indice = listaCompleta.filter(element => element.valorDescricao == descricao)
                 listaCompleta.splice(indice, 1)
                 localStorage.setItem("agendamentoCompleto", JSON.stringify(listaCompleta))
-                console.log(indice)
             } else {
                 return
             }
         })
     })
 }
-if(localStorage.agendamentoCompleto) {
-    mostrarConsulta()
-}
+localStorage.agendamentoCompleto ? mostrarConsulta() : ""
