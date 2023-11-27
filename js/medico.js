@@ -82,45 +82,38 @@ arrows.forEach(arrow => {
             }
         }
         const pathDown = document.querySelector(".pathArrowDown")
-
         if(p == 0) {
             pathDown.classList.remove("pathArrowDown-active")
             nomeMedico.textContent = "Dr. Sarah Santos"
             tipoMedico.textContent = "Cardiologista"
             imgMedico.src = "img/Rectangle 209.png"
         }
-
         if(p == 1) {    
             pathDown.classList.add("pathArrowDown-active")
             nomeMedico.textContent = "Dr. Carlos Magno"
             tipoMedico.textContent = "Psiquiatra"
             imgMedico.src = "img/psiquiatra.jpg"
         }
-
         if(p == 2) {
             nomeMedico.textContent = "Dr. Antônio Veigar"
             tipoMedico.textContent = "Clínico geral"
             imgMedico.src = "img/clinicoGeral.png"
         }
-        
         if(p == 3) {
             nomeMedico.textContent = "Dr. Cristiana Amolim"
             tipoMedico.textContent = "Dermatologista"
             imgMedico.src = "img/dermatologista.jpeg"
         }
-
         if(p == 4) {
             nomeMedico.textContent = "Dr. Amelia Castro Pereira"
             tipoMedico.textContent = "Endocrinologista"
             imgMedico.src = "img/endocrinologista.webp"
         }
-
         if(p == 5) {
             nomeMedico.textContent = "Dr. Nathan Philipe"
             tipoMedico.textContent = "Infectologista"
             imgMedico.src = "img/infectologista.png"
         }
-
         if(p == 6) {
             nomeMedico.textContent = "Dr. Marco da Costa"
             tipoMedico.textContent = "Neurologista"
